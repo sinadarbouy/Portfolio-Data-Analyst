@@ -1,6 +1,6 @@
 # Clean data in spreadsheets with sorting and filtering
 
-### scenario
+### Scenario:
 imagine you are a data analyst working for the superintendent of a large public school district in Portugal. The superintendent wants to know what factors affect student grades in core subjects and what changes can be made to improve student performance. Your team is going to analyze performance data on high school student achievement in two Portuguese public schools, Gabriel Pereira (GP) and Mousinho da Silveira (MS). The data was collected by the school district by means of academic reports and student surveys. The data includes information such as:
 
 - Student grades
@@ -8,9 +8,7 @@ imagine you are a data analyst working for the superintendent of a large public 
 - Student study time
 - Student participation in extracurricular activities
 
-
 ## 1. Sorting data
-
 Sort data by school and age
 **find error:** any age older than 18 may indicate that a mistake was made when entering that student's age(should speak to superintendent)
 
