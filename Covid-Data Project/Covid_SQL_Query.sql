@@ -134,7 +134,7 @@ Select *, (RollingPeopleVaccinated/Population)*100
 From #PeopleVaccinated
 
 
--- View  of PercentPopulationVaccinated for later visualizations
+-- create View for later visualizations
 
 
 use CovidPortfolioProject
@@ -150,3 +150,41 @@ Create View PercentPopulationVaccinated as
 					where d.continent is not null 
 )
  
+
+Create view Total_Cases as (
+
+Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
+	From CovidPortfolioProject..CovidDeaths
+		where continent is not null 
+)
+
+
+
+
+Create view TotalDeathCount as (
+	Select location,SUM(cast(new_deaths as int)) as TotalDeathCount
+	from CovidPortfolioProject..CovidDeaths
+	where continent is not null
+		and location not in ('World', 'European Union', 'International')
+		group by location
+)
+
+
+
+
+Create view Infection As (
+	Select Location, [Population], MaX(total_cases) as Highest_Cases,  Max(total_cases/[Population])*100 as PercentPopulationInfected
+		From CovidPortfolioProject..CovidDeaths
+			Where continent is not null 
+				Group by Location, Population
+)
+
+
+
+Create view Infection_WithDate as (
+	Select Location, [Population],date, MaX(total_cases) as Highest_Cases,  Max(total_cases/[Population])*100 as PercentPopulationInfected
+		From CovidPortfolioProject..CovidDeaths
+			Where continent is not null 
+				Group by Location, Population,date
+)
+
