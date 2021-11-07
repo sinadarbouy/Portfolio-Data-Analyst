@@ -161,10 +161,10 @@ Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deat
 
 
 
-Create view TotalDeathCount as (
+alter view TotalDeathCount as (
 	Select location,SUM(cast(new_deaths as int)) as TotalDeathCount
 	from CovidPortfolioProject..CovidDeaths
-	where continent is not null
+	where continent is  null
 		and location not in ('World', 'European Union', 'International')
 		group by location
 )

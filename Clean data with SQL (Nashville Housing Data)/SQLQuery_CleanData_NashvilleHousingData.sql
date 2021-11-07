@@ -17,7 +17,7 @@ update NashvilleHousing set SaleDate = CONVERT(date,SaleDate)
 
 -------------------------------------------------------------------------------------------------------------------------
 
--- Populate Property Adress data
+-- Populate Property Address data
 
 -- we have some Adress that is null 
 -- when we explore data we can find out that we can find this data by other same parcelID
